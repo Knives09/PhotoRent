@@ -1,0 +1,277 @@
+<?php
+
+/**
+ * @file
+ * Contains the definition of the field formatter.
+ */
+
+/**
+ * Implements hook_permission().
+ */
+function commerce_product_kit_permission() {
+  return array(
+    'administer commerce product kit' => array(
+      'title' => t('Administer commerce product kit'),
+      'description' => t('Perform administration task for commerce product kit module.'),
+    ),
+  );
+}
+
+/**
+ * Implements hook_field_formatter_info().
+ */
+function commerce_product_kit_field_formatter_info() {
+  return array(
+    'commerce_product_kit' => array(
+      'label' => t('Product kit'),
+      'field types' => array('entityreference', 'commerce_product_reference'),
+      'settings' => array(
+        'commerce_product_kit_label' => 'product kit',
+      ),
+    ),
+  );
+}
+
+/**
+ * Implements hook_field_formatter_settings_form().
+ */
+function commerce_product_kit_field_formatter_settings_form($field, $instance, $view_mode, $form, &$form_state) {
+  $display = $instance['display'][$view_mode];
+  $settings = $display['settings'];
+  if ($display['type'] == 'commerce_product_kit') {
+    $element['commerce_product_kit_label'] = array(
+      '#title'          => t('Product kit label'),
+      '#description'    => t('What do you call a product kit? E.g. "Set", "Wardrobe", etc.'),
+      '#type'           => 'textfield',
+      '#required'       => 'required',
+      '#size'           => 20,
+      '#default_value'  => $settings['commerce_product_kit_label'],
+    );
+  }
+  return $element;
+}
+
+/**
+ * Implements hook_field_formatter_settings_summary().
+ */
+function commerce_product_kit_field_formatter_settings_summary($field, $instance, $view_mode) {
+  $display = $instance['display'][$view_mode];
+  $settings = $display['settings'];
+  if ($display['type'] == 'commerce_product_kit') {
+    $summary = t('Product kit label : @label', array('@label' => $settings['commerce_product_kit_label']));
+  }
+  return $summary;
+}
+
+/**
+ * Implements hook_field_formatter_view().
+ */
+function commerce_product_kit_field_formatter_view($entity_type, $entity, $field, $instance, $langcode, $items, $display) {
+  if ($display['type'] == 'commerce_product_kit') {
+    $settings = $display['settings'];
+    $product_ids = array();
+    foreach ($items as $item) {
+      if (isset($item['product_id'])) {
+        $product_ids[] = $item['product_id'];
+      }
+      elseif (module_exists('entityreference') && isset($item['target_id'])) {
+        $product_ids[] = $item['target_id'];
+      }
+    }
+    $product_ids = array_count_values($product_ids);
+    $commerce_product_kit_add_cart_form = drupal_get_form('commerce_product_kit_add_cart_form', $product_ids, $settings['commerce_product_kit_label']);
+    return array(
+      '#theme' => 'commerce_product_kit',
+      '#commerce_product_kit_form' => $commerce_product_kit_add_cart_form,
+    );
+  }
+}
+
+/**
+ * Form which displays the single button to add the products in the
+ * kit to the cart.
+ */
+function commerce_product_kit_add_cart_form($form, &$form_state, $product_ids, $formatter_label) {
+  $form = array();
+  $form['product_ids'] = array(
+    '#type' => 'value',
+    '#value' => $product_ids,
+  );
+  $form['add_kit_to_cart'] = array(
+    '#type' => 'submit',
+    '#value' => t("Add @formatter_label to cart", array('@formatter_label' => $formatter_label)),
+  );
+  return $form;
+}
+
+/**
+ * Submit function to add products to the cart.
+ */
+function commerce_product_kit_add_cart_form_submit($form, &$form_state) {
+  global $user;
+  $clicked_button_text = $form_state['clicked_button']['#value'];
+  // Get the label of the product kit from the submit button text.
+  preg_match('~Add(.*?)to\ cart~', $clicked_button_text, $matches);
+  $product_ids = $form_state['values']['product_ids'];
+  $number_of_products_in_kit = count($product_ids);
+  if (!empty($product_ids)) {
+    $products_not_added_to_cart = array();
+    $number_of_products_added_to_cart = 0;
+    // Load each product and add to cart.
+    foreach ($product_ids as $product_id => $quantity) {
+      $product = commerce_product_load($product_id);
+
+      if (module_exists('commerce_stock')) {
+        $wrapper = entity_metadata_wrapper('commerce_product', $product);
+        if (isset($wrapper->commerce_stock)) {
+          $product_stock = (int) $wrapper->commerce_stock->value();
+          $product_title = (string) $wrapper->title->value();
+          if ($product_stock < $quantity) {
+            $products_not_added_to_cart[] = $product_title;
+            continue;
+          }
+        }
+      }
+      $line_item = commerce_product_line_item_new($product, $quantity);
+      $number_of_products_added_to_cart++;
+      // For calculation of selling price. This helps in invoking the
+      // pricing or shipping rules.
+      drupal_alter('commerce_product_calculate_sell_price_line_item', $line_item);
+      rules_invoke_event('commerce_product_calculate_sell_price', $line_item);
+      $line_item = commerce_cart_product_add($user->uid, $line_item);
+    }
+    // Find how many products were not added to the cart.
+    $number_of_products_not_added_to_cart = count($products_not_added_to_cart);
+    rules_invoke_event('commerce_product_kit_added', $number_of_products_added_to_cart, $number_of_products_not_added_to_cart, $number_of_products_in_kit);
+    if ($number_of_products_added_to_cart == $number_of_products_in_kit) {
+      $message = t('All products from the @product_kit have been added to the cart.', array('@product_kit' => $matches[1]));
+      drupal_set_message($message);
+    }
+    elseif ($number_of_products_not_added_to_cart == $number_of_products_in_kit) {
+      $message = t('No products were added to the cart due to stock shortage.');
+      drupal_set_message($message);
+    }
+    else {
+      $products_not_added = implode(', ', $products_not_added_to_cart);
+      $message = format_plural($number_of_products_not_added_to_cart, 'The product @product_not_added was not added to the cart because it is out of stock.', 'The products @product_not_added were not added to the cart due to stock shortage.', array('@product_not_added' => $products_not_added));
+      drupal_set_message($message);
+    }
+  }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function commerce_product_kit_theme($existing, $type, $theme, $path) {
+  return array(
+    'commerce_product_kit' => array(
+      'template' => 'templates/commerce-product-kit',
+      'variables' => array(
+        'commerce_product_kit_form' => array(),
+      ),
+    ),
+  );
+}
+
+/**
+ * Implements rules_event_info().
+ */
+function commerce_product_kit_rules_event_info() {
+  return array(
+    'commerce_product_kit_added' => array(
+      'label' => t('Product kit added to cart'),
+      'module' => 'commerce_product_kit',
+      'group' => 'commerce product kit' ,
+      'variables' => array(
+        'number_of_products_added_to_cart' => array(
+          'type' => 'integer',
+          'label' => t('Number of products added to cart'),
+        ),
+        'number_of_products_not_added_to_cart' => array(
+          'type' => 'integer',
+          'label' => t('Number of products not added to cart'),
+        ),
+        'number_of_products_in_kit' => array(
+          'type' => 'integer',
+          'label' => t('Total number of products in the product kit'),
+        ),
+      ),
+    ),
+  );
+}
+
+/**
+ * Implements rules_condition_info().
+ */
+function commerce_product_kit_rules_condition_info() {
+  $conditions = array(
+    'commerce_product_kit_all_added' => array(
+      'label' => t('All products added to cart'),
+      'group' => t('Commerce Product Kit') ,
+      'parameter' => array(
+        'number_of_products_added_to_cart' => array(
+          'label' => t('Number of products added to cart'),
+          'type' => 'integer',
+        ),
+        'number_of_products_in_kit' => array(
+          'label' => t('Total number of products in the product kit'),
+          'type' => 'integer',
+        ),
+      ),
+    ),
+    'commerce_product_kit_none_added' => array(
+      'label' => t('No products added to cart'),
+      'group' => t('Commerce Product Kit') ,
+      'parameter' => array(
+        'number_of_products_not_added_to_cart' => array(
+          'label' => t('Number of products not added to cart'),
+          'type' => 'integer',
+        ),
+        'number_of_products_in_kit' => array(
+          'label' => t('Total number of products in the product kit'),
+          'type' => 'integer',
+        ),
+      ),
+    ),
+    'commerce_product_kit_some_added' => array(
+      'label' => t('Some products added to cart'),
+      'group' => t('Commerce Product Kit'),
+      'parameter' => array(
+        'number_of_products_added_to_cart' => array(
+          'label' => t('Number of products added to cart'),
+          'type' => 'integer',
+        ),
+        'number_of_products_not_added_to_cart' => array(
+          'label' => t('Number of products not added to cart'),
+          'type' => 'integer',
+        ),
+        'number_of_products_in_kit' => array(
+          'label' => t('Total number of products in the product kit'),
+          'type' => 'integer',
+        ),
+      ),
+    ),
+  );
+  return $conditions;
+}
+
+/**
+ * Checks condition all the products are added to cart.
+ */
+function commerce_product_kit_all_added($number_of_products_added_to_cart, $number_of_products_in_kit) {
+  return ($number_of_products_added_to_cart == $number_of_products_in_kit);
+}
+
+/**
+ * Checks condition none products are added to cart.
+ */
+function commerce_product_kit_none_added($number_of_products_not_added_to_cart, $number_of_products_in_kit) {
+  return ($number_of_products_not_added_to_cart == $number_of_products_in_kit);
+}
+
+/**
+ * Checks condition some of the products are added to cart.
+ */
+function commerce_product_kit_some_added($number_of_products_added_to_cart, $number_of_products_not_added_to_cart, $number_of_products_in_kit) {
+  return (!(($number_of_products_added_to_cart == $number_of_products_in_kit) || ($number_of_products_not_added_to_cart == $number_of_products_in_kit)));
+}
