@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="72px" height="53px" viewBox="0 0 72 53" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 49.3 (51167) - http://www.bohemiancoding.com/sketch -->
+    <title>Group 7</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="00_HOME" transform="translate(-1036.000000, -128.000000)">
+            <g id="Group-7" transform="translate(1036.000000, 128.000000)">
+                <g id="Group-6" fill="#F18800">
+                    <path d="M0,11.8088097 L13.3637031,11.8088097 L13.3637031,22.4929709 L0,22.4929709 L0,11.8088097 Z M0,23.6176195 L13.3637031,23.6176195 L13.3637031,34.3017807 L0,34.3017807 L0,23.6176195 Z M15.034166,0 L28.3978691,0 L28.3978691,10.6841612 L15.034166,10.6841612 L15.034166,0 Z M15.034166,11.8088097 L28.3978691,11.8088097 L28.3978691,22.4929709 L15.034166,22.4929709 L15.034166,11.8088097 Z M15.034166,23.6176195 L28.3978691,23.6176195 L28.3978691,34.3017807 L15.034166,34.3017807 L15.034166,23.6176195 Z M30.068332,0 L43.4320351,0 L43.4320351,10.6841612 L30.068332,10.6841612 L30.068332,0 Z M30.068332,11.8088097 L43.4320351,11.8088097 L43.4320351,22.4929709 L30.068332,22.4929709 L30.068332,11.8088097 Z M30.068332,23.6176195 L43.4320351,23.6176195 L43.4320351,34.3017807 L30.068332,34.3017807 L30.068332,23.6176195 Z" id="Combined-Shape"></path>
+                </g>
+                <g id="Group-5" transform="translate(31.000000, 20.000000)" stroke="#0069B4" stroke-width="2">
+                    <rect id="Rectangle-5" x="1" y="4.99682791" width="38.4072266" height="26.5487708"></rect>
+                    <path d="M11.5048354,8.27914354 L11.5048354,0.204331761" id="Line-2" stroke-linecap="square"></path>
+                    <path d="M29.4636028,8.27914354 L29.4636028,0.204331761" id="Line-2-Copy" stroke-linecap="square"></path>
+                    <rect id="Rectangle-7" x="26.3570457" y="18.8045507" width="6.16562705" height="6.30769231"></rect>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

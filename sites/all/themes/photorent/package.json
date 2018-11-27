@@ -1,0 +1,21 @@
+{
+  "name": "Cercacasa",
+  "version": "1.0.0",
+  "description": "",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Fabio Mauriello",
+  "license": "ISC",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-jsvalidate": "^4.0.0",
+    "gulp-minify": "2.1.0",
+    "gulp-ruby-sass": "^3.0.0",
+    "jsvalidate": "^0.5.5"
+  },
+  "dependencies": {
+    "gulp-sass": "^4.0.1"
+  }
+}

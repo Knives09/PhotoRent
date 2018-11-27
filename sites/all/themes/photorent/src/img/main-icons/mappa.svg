@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="72px" height="54px" viewBox="0 0 72 54" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 49.3 (51167) - http://www.bohemiancoding.com/sketch -->
+    <title>Group 3</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="00_HOME" transform="translate(-845.000000, -131.000000)">
+            <g id="Group-3" transform="translate(845.000000, 131.000000)">
+                <g id="Group-2" fill="#F18800">
+                    <polygon id="Path-2" points="0 6.4631912 15.6868575 -2.84217094e-14 15.6868575 29.3969038 0 36.7233331"></polygon>
+                    <polygon id="Path-2" transform="translate(25.273270, 18.361667) scale(-1, 1) translate(-25.273270, -18.361667) " points="17.4298416 6.4631912 33.1166991 -2.84217094e-14 33.1166991 29.3969038 17.4298416 36.7233331"></polygon>
+                    <polygon id="Path-2-Copy" points="34.8596832 6.4631912 50.5465407 -2.84217094e-14 50.5465407 29.3969038 34.8596832 36.7233331"></polygon>
+                </g>
+                <g id="noun_1067285_cc" transform="translate(43.000000, 13.000000)" stroke="#0069B4" stroke-linejoin="round" stroke-width="2">
+                    <circle id="Oval" stroke-linecap="round" cx="14" cy="13" r="6"></circle>
+                    <path d="M13.9762481,40 C13.9762481,40 4.6323608,25.9279623 1.56445114,19.9850668 C0.466407508,17.8411173 -0.0690945272,15.4587535 0.00713660039,13.0568207 C0.435728744,5.72695712 6.57307906,0 13.9996078,0 C21.4261365,0 27.5634868,5.72695712 27.992079,13.0568207 C28.0726892,15.4591581 27.5369484,17.8425843 26.4347644,19.9850668 C23.3201353,25.9125662 13.9762481,40 13.9762481,40 Z" id="Shape"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

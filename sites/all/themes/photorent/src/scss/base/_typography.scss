@@ -1,0 +1,54 @@
+/* | Typography |
+============================================= */
+body {
+    font-size: 62.5%;
+    font-family: $base-font-family;
+}
+
+/* | Headings |
+============================================= */
+
+h1 { font-size: 4em; } /* =20px */
+h2 { font-size: 4em; } /* =18px */
+
+/* | Text |
+============================================= */
+
+p  { 
+	font-size: 1.4rem; 
+} /* =14px */
+li { font-size: 1.4rem; } /* =14px */
+a{ color: $color-primary;
+	&:hover{
+		color: $color-primary;
+	}
+ }
+
+// selection text
+
+//tr padding reset
+.datepicker{
+	.table-condensed > thead > tr > th{
+		padding: 0 !important;
+	}
+}
+
+//placeholder style
+input:focus::-webkit-input-placeholder {
+    color: $text-color-primary;
+}
+
+/* Firefox < 19 */
+input:focus:-moz-placeholder {
+    color: $text-color-primary;
+}
+
+/* Firefox > 19 */
+input:focus::-moz-placeholder {
+    color: $text-color-primary;
+}
+
+/* Internet Explorer 10 */
+input:focus:-ms-input-placeholder {
+    color: $text-color-primary;
+}
