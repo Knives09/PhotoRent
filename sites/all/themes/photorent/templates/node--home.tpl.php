@@ -35,9 +35,13 @@ $user_full = user_load($user->uid); // user_load(uid) returns the complete array
 </div>
 <?php } 
 
-else{
-  
-  echo("<p>Stampare HTML Landing");
+else{?>
+  <body class="starting-sections">
+<?php
   //$form = drupal_get_form('user_register_form');
-  // print drupal_render($form);
-}?>
+$form=drupal_get_form('user_login_block');
+  print(drupal_render($form));
+
+  //print drupal_render($form);
+ }?>
+ </body>

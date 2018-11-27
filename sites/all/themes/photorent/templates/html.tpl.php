@@ -53,7 +53,8 @@
   <title><?php print $head_title; ?></title>
   <?php print $styles; ?>
   <?php print $scripts; ?>
-  <link rel="stylesheet" type="text/css" href="<?php print $url ?>/assets/css/vendor/style-custom.css">
+  <link rel="stylesheet" type="text/css" href="<?php print $url ?>/assets/css/style-custom.css">
+  <link rel="stylesheet" type="text/css" href="<?php print $url ?>/assets/css/bootsrap.min.css">
 </head>
 <body class="<?php print $classes; ?>" <?php print $attributes;?>>
   <div id="skip-link">
@@ -65,5 +66,6 @@
    <script src="<?php print $url ?>/assets/script/jquery-3.3.1.min.js"></script>
    <script src="<?php print $url ?>/assets/script/owl.carousel.min.js"></script>
    <script src="<?php print $url ?>/assets/script/scripts.js"></script>
+   <script src="<?php print $url ?>/assets/script/bootstrap.min.js"></script>
 </body>
 </html>
