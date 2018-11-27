@@ -11,11 +11,21 @@
     color: #fff;
 }
 body.starting-sections{
-	background-color: #17a2b8;
+	background-color: #333;
 	color: #fff;
 	font-family: 'Open Sans', sans-serif;
 	#header{
 		display: none;
+	}
+	.log-cont{
+		margin-top: 20vh;
+		.logo{
+			text-align: center;
+			margin-bottom: 20px;
+			img{
+				display: inline;
+			}
+		}
 	}
 	form{
 		input{
