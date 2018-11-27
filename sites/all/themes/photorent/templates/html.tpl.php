@@ -1,5 +1,7 @@
 <?php
+  global $base_url;
 
+  $url=$base_url.'/'.$variables['directory'];
 /**
  * @file
  * Default theme implementation to display the basic html structure of a single
@@ -51,6 +53,7 @@
   <title><?php print $head_title; ?></title>
   <?php print $styles; ?>
   <?php print $scripts; ?>
+  <link rel="stylesheet" type="text/css" href="<?php print $url ?>/assets/css/vendor/style-custom.css">
 </head>
 <body class="<?php print $classes; ?>" <?php print $attributes;?>>
   <div id="skip-link">
@@ -59,5 +62,8 @@
   <?php print $page_top; ?>
   <?php print $page; ?>
   <?php print $page_bottom; ?>
+   <script src="<?php print $url ?>/assets/script/jquery-3.3.1.min.js"></script>
+   <script src="<?php print $url ?>/assets/script/owl.carousel.min.js"></script>
+   <script src="<?php print $url ?>/assets/script/scripts.js"></script>
 </body>
 </html>
