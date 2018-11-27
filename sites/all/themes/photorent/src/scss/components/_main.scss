@@ -1,3 +1,49 @@
-main{
-	
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: #fff;
+    opacity: 1; /* Firefox */
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color: #fff;
+}
+
+::-ms-input-placeholder { /* Microsoft Edge */
+    color: #fff;
+}
+body.starting-sections{
+	background-color: #17a2b8;
+	color: #fff;
+	font-family: 'Open Sans', sans-serif;
+	#header{
+		display: none;
+	}
+	form{
+		input{
+			background: transparent;
+			padding: 14px;
+			border-radius: 12px;
+			border: 1px solid #fff;
+			width: 100%;
+			color: #fff;
+		}
+		input[type="submit"]{
+			background-color: rgba(255,255,2555,0.5);
+			color: #fff;
+			border: 0px;
+			font-weighT: bold;
+		}
+		ul{
+			list-style-type: none;
+			text-align: center;
+			li{
+				padding: 0px;
+				margin: 0;
+				a{
+					color: #fff;
+					font-size: 12px;
+					padding: 3px 0;
+				}
+			}
+		}
+	}
 }

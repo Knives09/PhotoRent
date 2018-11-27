@@ -34,14 +34,22 @@ $user_full = user_load($user->uid); // user_load(uid) returns the complete array
   <h2><a href="">Tutte le mostre</a></h2>
 </div>
 <?php } 
-
 else{?>
-  <body class="starting-sections">
-<?php
-  //$form = drupal_get_form('user_register_form');
-$form=drupal_get_form('user_login_block');
-  print(drupal_render($form));
 
-  //print drupal_render($form);
- }?>
- </body>
+<div class="container">
+	<div class="row">
+		<div class="col-md-4 offset-md-4">
+			<div class="logo">
+			  		<img src="" alt="logo">
+			  	</div>
+
+			<?php
+			  //$form = drupal_get_form('user_register_form');
+			$form=drupal_get_form('user_login_block');
+			  print(drupal_render($form));
+
+			  //print drupal_render($form);
+			 }?>
+		</div>
+	</div>
+</div>
