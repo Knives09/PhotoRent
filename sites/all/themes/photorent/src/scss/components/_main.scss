@@ -35,12 +35,29 @@ body.starting-sections{
 			border: 1px solid #fff;
 			width: 100%;
 			color: #fff;
+			font-size: 16px;
 		}
 		input[type="submit"]{
 			background-color: rgba(255,255,2555,0.5);
 			color: #fff;
 			border: 0px;
-			font-weighT: bold;
+		}
+		input[type="button"]{
+			background: none;
+			background-color: rgba(255,255,2555,0.5);
+			width: 100%;
+			display: block;
+			color: #fff;
+			border: 0px;
+			padding: 14px;
+			border-radius: 12px;
+			text-shadow: 0px;
+			font-size: 16px;
+			font-weight: 100;
+			&:hover{
+				color: #fff;
+				text-shadow: 0px;
+			}
 		}
 		ul{
 			list-style-type: none;
@@ -55,5 +72,79 @@ body.starting-sections{
 				}
 			}
 		}
+	}
+	.user-info-from-cookie{
+		.form-item-mail{
+			.description{
+				display: none;
+			}
+		}
+		.form-type-password-confirm{
+			.form-item{
+				width: 100%;
+				div.password-confirm, .password-strength{
+					display: none;
+				}
+			}
+			.description{
+				display: none;
+			}
+		}
+		.form-item-pass-pass2{
+			margin-top: 15px;
+		}
+	}
+	#edit-field-interessi-und--2{
+		width: calc(100% + 40vw);
+		margin-left: -20vw;
+		.form-item {
+			width: calc(25% - 15px);
+			display: block;
+			float: left;
+			border: 1px solid #fff;
+			margin-right: 15px;
+			border-radius: 15px;
+			position: relative;
+			padding: 15px;
+			input[type="checkbox"]{
+				position: absolute;
+				cursor: pointer;
+				height: 100%;
+				width: 100%;
+				left: 0;
+				top: 0;
+				opacity: 0;
+			}
+			&:after{
+				content: '\e5ca';
+				position: absolute;
+				font-family: 'Material Icons';
+				top: 15px;
+  				right: 15px;
+  				color: #fff;
+  				font-size: 20px;
+			}
+			&:hover{
+			  background-color: rgba(255,255,255,0.5);
+			}
+			&input:checked{
+				background-color: rgba(255,255,255,0.5);
+			}
+		}
+	}
+	.multipage-counter{
+		display: none;
+	}
+	.multipage-button{
+		width: 100%;
+	}
+	.multipage-pane-title{
+		display: none;
+	}
+	.multipage-link-previous{
+		display: none !important;
+	}
+	.password-suggestions{
+		display: none !important;
 	}
 }
