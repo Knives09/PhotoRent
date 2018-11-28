@@ -57,7 +57,7 @@
   <link rel="stylesheet" type="text/css" href="<?php print $url ?>/assets/css/style-custom.css">
   <link rel="stylesheet" type="text/css" href="<?php print $url ?>/assets/css/bootstrap.min.css">
 </head>
-<body class="<?php print $classes; ?> starting-sections" <?php print $attributes;?>>
+<body class="<?php print $classes; ?> <?php if (!user_is_logged_in()){echo("starting-sections");} ?>" <?php print $attributes;?>>
   <div id="skip-link">
     <a href="#main-content" class="element-invisible element-focusable"><?php print t('Skip to main content'); ?></a>
   </div>
