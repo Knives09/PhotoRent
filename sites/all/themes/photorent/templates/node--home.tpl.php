@@ -40,7 +40,7 @@ $user_full = user_load($user->uid); // user_load(uid) returns the complete array
 <?php } 
 else{?>
 
-<div class="container">
+<div class="container land-cont">
 	<div class="row">
 		<div class="col-md-4 offset-md-4">
 			<div class="log-cont">
@@ -57,5 +57,60 @@ else{?>
 				 }?>
 				</div>
 			</div>
+	</div>
+</div>
+<div class="section2">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-6">
+				<div class="boxes">
+					<div class="box">
+						<img src="<?php echo($url); ?>/images/2.png">
+					</div>
+					<div class="box">
+						<img src="<?php echo($url); ?>/images/3.png">
+					</div>
+					<div class="box">
+						<img src="<?php echo($url); ?>/images/4.png">
+					</div>
+					<div class="box">
+						<img src="<?php echo($url); ?>/images/5.png">
+					</div>
+					<div class="box">
+						<img src="<?php echo($url); ?>/images/6.png">
+					</div>
+					<div class="box">
+						<img src="<?php echo($url); ?>/images/7.png">
+					</div>
+				</div>
+			</div>
+			<div class="col-md-4 offset-md-2">
+				<p class="infotext">
+					<strong>Noleggia</strong> le opere dei tuoi artisti preferiti
+				</p>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="section2 second">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-4">
+				<p class="infotext">
+					<strong>Esponi</strong> la tua mostra privata in casa, nella tua attività o nel tuo ufficio
+				</p>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="section2 third">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-4 offset-md-8">
+				<p class="infotext">
+					<strong>Fotorent</strong> ti spedisce direttamente a casa le opere che hai scelto e ti aiuta ad allestire la tua mostra
+				</p>
+			</div>
+		</div>
 	</div>
 </div>
