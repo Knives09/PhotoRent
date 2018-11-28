@@ -21,3 +21,9 @@ print drupal_render($form);
       </div>
   </div>
 </div>
+<div id="footer-wrapper"><div class="section">
+<?php $block = block_load('block', '2');
+$render=_block_render_blocks(array($block));
+$block=_block_get_renderable_array($render);
+$output = drupal_render($block);
+print $output; ?></div>
