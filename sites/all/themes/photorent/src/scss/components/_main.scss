@@ -29,26 +29,29 @@ body.starting-sections{
 	}
 	form{
 		input{
-			background: transparent;
-			padding: 14px;
-			border-radius: 12px;
-			border: 1px solid #fff;
-			width: 100%;
-			color: #fff;
+			background: transparent !important;
+			padding: 14px !important;
+			border-radius: 12px !important;
+			border: 1px solid #fff !important;
+			width: 100% !important;
+			color: #fff !important;
 			font-size: 16px;
 		}
 		input[type="submit"]{
-			background-color: rgba(255,255,2555,0.5);
-			color: #fff;
-			border: 0px;
+			background-color: rgba(255,255,2555,0.5) !important;
+			color: #fff !important;
+			border: 0px !important;
+			font-size: 16px !important;
+			text-shadow: 0 !important;
+
 		}
 		input[type="button"]{
-			background: none;
-			background-color: rgba(255,255,2555,0.5);
+			background: none !important;
+			background-color: rgba(255,255,2555,0.5) !important;
 			width: 100%;
 			display: block;
 			color: #fff;
-			border: 0px;
+			border: 0px  !important;
 			padding: 14px;
 			border-radius: 12px;
 			text-shadow: 0px;
@@ -94,9 +97,21 @@ body.starting-sections{
 			margin-top: 15px;
 		}
 	}
+	.field-name-field-interessi, .field-name-field-abbonamento{
+		text-align: center;
+	}
+	.form-item-field-interessi-und, .form-type-radios{
+		text-align: center;
+		.form-required{
+			display: none;
+		}
+	}
 	#edit-field-interessi-und--2{
+		text-align: left;
 		width: calc(100% + 40vw);
 		margin-left: -20vw;
+		margin-top: 50px;
+		margin-bottom: 50px;
 		.form-item {
 			width: calc(25% - 15px);
 			display: block;
@@ -106,6 +121,18 @@ body.starting-sections{
 			border-radius: 15px;
 			position: relative;
 			padding: 15px;
+			&.selected{
+				background-color: rgba(255,255,255,0.5);
+				&:before{
+					content: '\e5ca';
+					position: absolute;
+					font-family: 'Material Icons';
+					top: 15px;
+	  				right: 15px;
+	  				color: #fff;
+	  				font-size: 20px;
+				}
+			}
 			input[type="checkbox"]{
 				position: absolute;
 				cursor: pointer;
@@ -115,14 +142,66 @@ body.starting-sections{
 				top: 0;
 				opacity: 0;
 			}
-			&:after{
-				content: '\e5ca';
+			&:hover{
+			  background-color: rgba(255,255,255,0.5);
+			}
+			&input:checked{
+				background-color: rgba(255,255,255,0.5);
+			}
+		}
+		&:after{
+			content:"";
+			display: block;
+			clear: both;
+		}
+	}
+	#edit-field-abbonamento-und--2{
+		width: calc(100% + 40vw);
+		margin-left: -20vw;
+		margin-top: 50px;
+		margin-bottom: 50px;
+		.form-item {
+			width: calc(25% - 15px);
+			display: block;
+			float: left;
+			border: 1px solid #fff;
+			margin-right: 15px;
+			border-radius: 15px;
+			padding: 30px 15px 70px 15px;
+			position: relative;
+			label{
+				font-size: 50px;
+				font-weight: bold;
+				&:after{
+					content:"mesi";
+					font-size: 20px;
+					position: absolute;
+					bottom: 40px;
+					width: 100%;
+					text-align: center;
+					left: 0;
+				}
+			}
+			&.selected{
+				background-color: rgba(255,255,255,0.5);
+				&:before{
+					content: '\e5ca';
+					position: absolute;
+					font-family: 'Material Icons';
+					top: 15px;
+	  				right: 15px;
+	  				color: #fff;
+	  				font-size: 20px;
+				}
+			}
+			input[type="radio"]{
 				position: absolute;
-				font-family: 'Material Icons';
-				top: 15px;
-  				right: 15px;
-  				color: #fff;
-  				font-size: 20px;
+				cursor: pointer;
+				height: 100%;
+				width: 100%;
+				left: 0;
+				top: 0;
+				opacity: 0;
 			}
 			&:hover{
 			  background-color: rgba(255,255,255,0.5);
@@ -130,6 +209,91 @@ body.starting-sections{
 			&input:checked{
 				background-color: rgba(255,255,255,0.5);
 			}
+		}
+		&:after{
+			content:"";
+			display: block;
+			clear: both;
+		}
+	}
+	#edit-field-tipo-und--2{
+		width: calc(100% + 40vw);
+		margin-left: -20vw;
+		margin-top: 50px;
+		margin-bottom: 50px;
+		text-align: center;
+		.form-item {
+			width: calc(33% - 8px);
+			display: block;
+			float: left;
+			border: 1px solid #fff;
+			margin-right: 15px;
+			border-radius: 15px;
+			position: relative;
+			padding: 30px 15px 70px 15px;
+			position: relative;
+			label{
+				font-size: 30px;
+				font-weight: bold;
+				&:after{
+					content:"fino ad un massimo di 5 opere";
+					font-size: 16px;
+					font-weight: 100;
+					line-height: 20px;
+					position: absolute;
+					bottom: 40px;
+					width: 100%;
+					text-align: center;
+					left: 0;
+				}
+			}
+			&:first-child{
+				label{
+					&:after{
+						content:"fino ad un massimo di 3 opere";
+					}
+				}
+			}
+			&:last-child{
+				margin-right: 0px;
+				label{
+					&:after{
+						content:"fino ad un massimo di 10 opere";
+					}
+				}
+			}
+			&.selected{
+				background-color: rgba(255,255,255,0.5);
+				&:before{
+					content: '\e5ca';
+					position: absolute;
+					font-family: 'Material Icons';
+					top: 15px;
+	  				right: 15px;
+	  				color: #fff;
+	  				font-size: 20px;
+				}
+			}
+			input[type="radio"]{
+				position: absolute;
+				cursor: pointer;
+				height: 100%;
+				width: 100%;
+				left: 0;
+				top: 0;
+				opacity: 0;
+			}
+			&:hover{
+			  background-color: rgba(255,255,255,0.5);
+			}
+			&input:checked{
+				background-color: rgba(255,255,255,0.5);
+			}
+		}
+		&:after{
+			content:"";
+			display: block;
+			clear: both;
 		}
 	}
 	.multipage-counter{
