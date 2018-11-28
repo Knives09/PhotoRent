@@ -1,6 +1,10 @@
 <?php 
 global $user;
 
+global $base_url;
+
+$url=$base_url.'/'.$variables['directory'];
+
 
 if (user_is_logged_in()&&!isset($user->roles[4])){
 print theme('user_picture', array('account' => $user));
@@ -41,7 +45,7 @@ else{?>
 		<div class="col-md-4 offset-md-4">
 			<div class="log-cont">
 				<div class="logo">
-				  		<img src="" alt="logo">
+				  		<img src="<?php echo($url); ?>/images/fotorent_white.png" alt="logo">
 				  	</div>
 
 				<?php
