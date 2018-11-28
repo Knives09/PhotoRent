@@ -8,7 +8,7 @@ $url=$base_url.'/'.$variables['directory'];
 
 <div class="container">
   <div class="row">
-    <div class="col-md-4 offset-md-4">
+    <div class="col-md-6 col-lg-4 offset-md-3 offset-lg-4">
       <div class="log-cont">
         <div class="logo">
               <img src="<?php echo($url); ?>/images/fotorent_white.png" alt="logo">

@@ -53,6 +53,7 @@
   <title><?php print $head_title; ?></title>
   <?php print $styles; ?>
   <?php print $scripts; ?>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" type="text/css" href="<?php print $url ?>/assets/css/style-custom.css">
   <link rel="stylesheet" type="text/css" href="<?php print $url ?>/assets/css/bootstrap.min.css">
 </head>

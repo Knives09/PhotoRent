@@ -14,21 +14,46 @@ body.starting-sections{
 	background-color: #333;
 	background-image: url(../img/bg1.png);
 	background-repeat: no-repeat;
+	background-attachment: fixed;
 	height: 100vh;
 	background-size: cover;
 	color: #fff;
 	font-family: 'Open Sans', sans-serif;
 	&.register{
 		background-image: url(../img/bg2.png);
+		#footer-wrapper{
+			position: fixed !important;
+			left: 0 !important;
+			bottom: 0 !important;
+			width: 100% !important;
+		}
 	}
 	&.interessi{
 		background-image: url(../img/bg3.png);
+		#footer-wrapper{
+			position: fixed !important;
+			left: 0 !important;
+			bottom: 0 !important;
+			width: 100% !important;
+		}
 	}
 	&.abbonamento{
 		background-image: url(../img/bg4.png);
+		#footer-wrapper{
+			position: fixed !important;
+			left: 0 !important;
+			bottom: 0 !important;
+			width: 100% !important;
+		}
 	}
 	&.tipo{
 		background-image: url(../img/bg5.png);
+		#footer-wrapper{
+			position: fixed !important;
+			left: 0 !important;
+			bottom: 0 !important;
+			width: 100% !important;
+		}
 	}
 	#header{
 		display: none;
@@ -39,6 +64,9 @@ body.starting-sections{
 	}
 	.log-cont{
 		margin-top: 20vh;
+		@include respond-to(phone){
+		    padding-bottom: 20vh;
+		}
 		.logo{
 			text-align: center;
 			margin-bottom: 30px;
@@ -197,6 +225,18 @@ body.starting-sections{
 		margin-left: -20vw;
 		margin-top: 50px;
 		margin-bottom: 50px;
+		@include respond-to(mediumscreens){
+			width: calc(100% + 50vw);
+			margin-left: -25vw;
+		}
+		@include respond-to(tablet){
+			width: calc(100% + 60vw);
+			margin-left: -30vw;
+		}
+		@include respond-to(phone){
+			width: 100%;
+			margin-left: 0;
+		}
 		.form-item {
 			width: calc(25% - 15px);
 			display: block;
@@ -206,6 +246,10 @@ body.starting-sections{
 			border-radius: 15px;
 			position: relative;
 			padding: 15px;
+			@include respond-to(phone){
+				width: 100%;
+				margin-right: 0;
+			}
 			&.selected{
 				background-color: rgba(255,255,255,0.5);
 				&:before{
@@ -245,6 +289,18 @@ body.starting-sections{
 		margin-left: -20vw;
 		margin-top: 50px;
 		margin-bottom: 50px;
+		@include respond-to(mediumscreens){
+			width: calc(100% + 50vw);
+			margin-left: -25vw;
+		}
+		@include respond-to(tablet){
+			width: calc(100% + 60vw);
+			margin-left: -30vw;
+		}
+		@include respond-to(phone){
+			width: 100%;
+			margin-left: 0;
+		}
 		.form-item {
 			width: calc(25% - 15px);
 			display: block;
@@ -254,6 +310,10 @@ body.starting-sections{
 			border-radius: 15px;
 			padding: 30px 15px 70px 15px;
 			position: relative;
+			@include respond-to(phone){
+				width: 100%;
+				margin-right: 0;
+			}
 			label{
 				font-size: 50px;
 				font-weight: bold;
@@ -306,6 +366,18 @@ body.starting-sections{
 		margin-left: -20vw;
 		margin-top: 50px;
 		margin-bottom: 50px;
+		@include respond-to(mediumscreens){
+			width: calc(100% + 50vw);
+			margin-left: -25vw;
+		}
+		@include respond-to(tablet){
+			width: calc(100% + 60vw);
+			margin-left: -30vw;
+		}
+		@include respond-to(phone){
+			width: 100%;
+			margin-left: 0;
+		}
 		text-align: center;
 		.form-item {
 			width: calc(33% - 8px);
@@ -317,6 +389,10 @@ body.starting-sections{
 			position: relative;
 			padding: 30px 15px 70px 15px;
 			position: relative;
+			@include respond-to(phone){
+				width: 100%;
+				margin-right: 0;
+			}
 			label{
 				font-size: 30px;
 				font-weight: bold;
