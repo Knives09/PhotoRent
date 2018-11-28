@@ -19,4 +19,17 @@ $( document ).ready(function() {
     		$(this).addClass('selected');
     	});
     });
+    if($('.user-info-from-cookie').length > 0){
+    	$('body').addClass('register');
+    }
+    $('body').on( "click", ".multipage-link-next", function() {
+	  /* Act on the event */
+    	if($('.group-step2:visible').length > 0 && $('.group-step3:visible').length == 0 && $('.group-step4:visible').length == 0){
+	    	$('body').addClass('interessi');
+	    }else if($('.group-step2:visible').length == 0 && $('.group-step3:visible').length > 0 && $('.group-step4:visible').length == 0){
+	    	$('body').addClass('abbonamento');
+	    }else if($('.group-step2:visible').length == 0 && $('.group-step3:visible').length == 0 && $('.group-step4:visible').length > 0){
+	    	$('body').addClass('tipo');
+	    }
+	});
 });

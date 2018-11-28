@@ -18,6 +18,18 @@ body.starting-sections{
 	background-size: cover;
 	color: #fff;
 	font-family: 'Open Sans', sans-serif;
+	&.register{
+		background-image: url(../img/bg2.png);
+	}
+	&.interessi{
+		background-image: url(../img/bg3.png);
+	}
+	&.abbonamento{
+		background-image: url(../img/bg4.png);
+	}
+	&.tipo{
+		background-image: url(../img/bg5.png);
+	}
 	#header{
 		display: none;
 	}
