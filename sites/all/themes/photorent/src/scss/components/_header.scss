@@ -4,4 +4,32 @@
 	left: 0;
 	width: 100%;
 	background-color: #fff;
+	&:before{
+		content:"";
+		position: absolute;
+		background-image: url(../img/fotorent_color.png);
+		background-size: contain;
+		height: 30px;
+		width: 100px;
+		background-repeat: no-repeat;
+		left: 30px;
+		top: 25px;
+	}
+	.region{
+		ul{
+			list-style-type: none;
+			margin-right: 30px;
+			margin-bottom: 15px;
+			li{
+				display: block;
+				float: right;
+				margin-left: 15px;
+				a{
+					font-size: 16px;
+					color: #000;
+
+				}
+			}
+		}
+	}
 }

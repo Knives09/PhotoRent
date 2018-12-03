@@ -14,14 +14,26 @@ $user_full = user_load($user->uid); // user_load(uid) returns the complete array
 <p>Ciao <?php echo($user_full->field_nome_e_cognome['und'][0]['value']); ?>
 </p>
 <p>Hai ancora <?php echo("N.Giorni "); ?> giorni per aggiungere extra alla tua mostra.</p>
-<div>
-  <h2><a href="">Le tue mostre</a></h2>
-</div>
-<div>
-  <h2><a href="">Offerte</a></h2>
-</div>
-<div>
-  <h2><a href="">Tutte le mostre</a></h2>
+
+<div class="blocks-home">
+	<div class="row">
+	<div class="miemostre-link col-lg-8">
+	  <a href=""><h2>Le tue mostre</h2></a>
+	</div>
+	<div class="col-lg-4 no-right-padding">
+		<div class="extra-link">
+		  <a href=""><h2>Extra</h2></a>
+		</div>
+		<div class="offerte-link">
+		  <a href=""><h2>Offerte</h2></a>
+		</div>
+	</div>
+	</div>
+	<div class="row">
+	<div class="tuttemostre-link col-lg-12">
+	  <a href=""><h2>Tutte le mostre</h2></a>
+	</div>
+	</div>
 </div>
 <?php } 
 else{?>

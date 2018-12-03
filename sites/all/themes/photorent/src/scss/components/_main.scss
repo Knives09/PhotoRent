@@ -473,3 +473,94 @@ body.starting-sections{
 		display: none !important;
 	}
 }
+body:not(.starting-sections){
+	padding-top: 100px !important;
+	#content.column{
+		width: 100%;
+		p{
+			text-align: center;
+		}
+	}
+	.user-picture{
+		text-align: center;
+		a{
+			display: inline-block;
+			border-radius: 50%;
+			width: 100px;
+			height: 100px;
+			margin-bottom: 20px;
+			img{
+				width: 100%;
+			}
+		}
+	}
+	.blocks-home{
+		padding: 50px 0;
+	}
+	.miemostre-link{
+		height: 400px;
+		margin-bottom: 20px;
+		background-color: grey;
+		position: relative;
+		border-radius: 5px;
+		background-image: url(../img/bg1.png);
+		background-size: cover;
+		a{
+			display: block;
+			position: absolute;
+			bottom: 15px;
+			left: 30px;
+			color: #fff;
+		}
+	}
+	.extra-link{
+		height: 190px;
+		margin-bottom: 20px;
+		background-color: grey;	
+		position: relative;
+		border-radius: 5px;
+		background-image: url(../img/bg2.png);
+		background-size: cover;
+		a{
+			display: block;
+			position: absolute;
+			bottom: 15px;
+			left: 30px;
+			color: #fff;
+		}
+
+	}
+	.offerte-link{
+		height: 190px;
+		background-color: grey;
+		position: relative;
+		border-radius: 5px;
+		background-image: url(../img/bg3.png);
+		background-size: cover;
+		a{
+			display: block;
+			position: absolute;
+			bottom: 15px;
+			left: 30px;
+			color: #fff;
+		}
+	}
+	.tuttemostre-link{
+		height: 350px;
+		background-color: grey;
+		position: relative;
+		border-radius: 5px;
+		background-image: url(../img/bg4.png);
+		background-size: cover;
+		a{
+			display: block;
+			position: absolute;
+			bottom: 15px;
+			left: 30px;
+			color: #fff;
+		}
+	}
+	.no-right-padding{
+		padding-right: 0px;
+	}
+}

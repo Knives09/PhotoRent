@@ -172,6 +172,7 @@
   <?php endif; ?>
 
   <div id="main-wrapper" class="clearfix"><div id="main" class="clearfix">
+    <div class="container">
 
     <?php //if ($breadcrumb): ?>
       <!--<div id="breadcrumb"><?php //print $breadcrumb; ?></div>-->
@@ -215,7 +216,8 @@
       </div></div> <!-- /.section, /#sidebar-second -->
     <?php endif; ?>
 
-  </div></div> <!-- /#main, /#main-wrapper -->
+  </div>
+</div> <!-- /#main, /#main-wrapper -->
 
   <?php if ($page['triptych_first'] || $page['triptych_middle'] || $page['triptych_last']): ?>
     <div id="triptych-wrapper"><div id="triptych" class="clearfix">

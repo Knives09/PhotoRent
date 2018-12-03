@@ -5,6 +5,47 @@
 	background: linear-gradient(to bottom, #38a496 0%,#265a91 100%);
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#38a496', endColorstr='#265a91',GradientType=0 );
 	padding: 20px 0;
+	color: #fff;
+	.nav-footer{
+		display: block;
+	}
+	.logo-footer{
+		position: relative;
+		&:before{
+			content:"";
+			position: absolute;
+			background-image: url(../img/fotorent_white.png);
+			background-size: contain;
+			height: 30px;
+			width: 100px;
+			background-repeat: no-repeat;
+			left: 0px;
+			top: 10px;
+		}
+		span{
+			display: none;
+		}
+	}
+	.privacy-social{
+		display: none;
+	}
+	.region{
+		ul{
+			list-style-type: none;
+			margin-right: 30px;
+			margin-bottom: 15px;
+			li{
+				display: block;
+				float: right;
+				margin-left: 15px;
+				a{
+					font-size: 16px;
+					color: #fff;
+
+				}
+			}
+		}
+	}
 }
 body.starting-sections{
 	#footer-wrapper{
