@@ -1,4 +1,8 @@
 $( document ).ready(function() {
+    if($(window).height() > $('body').height()){
+        $('#footer-wrapper').addClass('fixed');
+        alert('cane');
+    }
     $('#edit-field-interessi-und--2 .form-item').each(function(index, el) {
     	$(this).click(function(event) {
     		/* Act on the event */

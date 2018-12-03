@@ -563,4 +563,25 @@ body:not(.starting-sections){
 	.no-right-padding{
 		padding-right: 0px;
 	}
+	.view-commerce-cart-form{
+		form#views-form-commerce-cart-form-default{
+			table{
+				width: 100%;
+			}
+			.line-item-summary{
+				margin-top: 10px;
+			}
+			.form-actions{
+				input{
+					background-color: #38a496;
+					border: 0px;
+					border-radius: 30px;
+					padding: 10px 20px;
+					color: #fff;
+					text-align: center;
+					margin-left: 15px;
+				}
+			}
+		}
+	}
 }
