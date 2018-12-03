@@ -1,13 +1,15 @@
 $( document ).ready(function() {
-    if($(window).height() > $('body').height()){
-        $('#footer-wrapper').addClass('fixed');
-        alert('cane');
-    }
     $('#edit-field-interessi-und--2 .form-item').each(function(index, el) {
     	$(this).click(function(event) {
     		/* Act on the event */
     		$(this).toggleClass('selected');
     	});
+    });
+    $('.views-row').each(function(index, el) {
+        console.log('started');
+        var widthb = $(this).width();
+        console.log(widthb);
+        $(this).height(widthb);
     });
     $('#edit-field-abbonamento-und--2 .form-item').each(function(index, el) {
     	$(this).click(function(event) {
@@ -36,4 +38,8 @@ $( document ).ready(function() {
 	    	$('body').addClass('tipo');
 	    }
 	});
+    if($(window).height() > ($('html').outerHeight() + 80)){
+        console.log($('html').outerHeight());
+        $('#footer-wrapper').addClass('fixed');
+    }
 });
