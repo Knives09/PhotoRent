@@ -35,6 +35,7 @@ $user_full = user_load($user->uid); // user_load(uid) returns the complete array
 	</div>
 	</div>
 </div>
+
 <?php } 
 else{?>
 

@@ -4,7 +4,7 @@
 	left: 0;
 	width: 100%;
 	background-color: #fff;
-	z-index: 9999;
+	z-index: 9998;
 	&:before{
 		content:"";
 		position: absolute;
@@ -33,4 +33,7 @@
 			}
 		}
 	}
+}
+.overlay-displace-top{
+	z-index: 9999 !important;
 }

@@ -481,6 +481,140 @@ body:not(.starting-sections){
 			text-align: center;
 		}
 	}
+	.checkout_completion_message{
+		position: relative;
+		margin-top: 15vh;
+		padding-top: 100px;
+		p:first-child{
+			&:before{
+				content: "Grazie per il tuo ordine, verrai contattato per maggiori dettagli sulla spedizione.";
+				display: block;
+				margin-bottom: 15px;
+			}
+		}
+		&:after{
+			content:"";
+			width: 160px;
+			height: 40px;
+			background-image: url(../img/fotorent_color.png);
+			background-size: contain;
+			background-repeat: no-repeat;
+			position: absolute;
+			top: 30px;
+			@include center(x);
+		}
+	}
+	#commerce-checkout-form-review{
+		.checkout-help{
+			font-size: 1.5rem;
+			margin-bottom: 15px;
+		}
+		table.checkout-review{
+			width: 100%;
+			td{
+				padding: 10px;
+			}
+			table.views-table{
+				width: 100%;
+			}
+		}
+		#edit-commerce-payment{
+			legend{
+				span{
+					margin-top: 20px;
+					display: block;
+				}
+			}
+		}
+		input.checkout-continue{
+			background-color: #38a496;
+			border: 0px;
+			border-radius: 30px;
+			padding: 10px 20px;
+			color: #fff;
+			text-align: center;
+			margin-top: 20px;
+			margin-bottom: 30px;
+			margin-right: 20px;
+		}
+	}
+	#commerce-checkout-form-checkout{
+		width: 100%;
+		.view-content{
+			table.views-table{
+				width: 100%;
+				.views-field {
+					padding: 10px;
+				}
+			}
+		}
+		.view-footer{
+			table.commerce-price-formatted-components{
+				border: 0px;
+				td{
+					padding: 10px;
+				}
+			}
+		}
+		input.checkout-continue{
+			background-color: #38a496;
+			border: 0px;
+			border-radius: 30px;
+			padding: 10px 20px;
+			color: #fff;
+			text-align: center;
+			margin-bottom: 30px;
+			margin-right: 20px;
+		}
+		#addressfield-wrapper{
+			.chosen-container{
+				display: block !important;
+				width: 100% !important;
+				margin-top: 20px;
+				.chosen-single{
+					padding: 20px;
+				    background: none;
+				    background-color: #fff;
+				    border-radius: 30px;
+				    line-height: 0px;
+				    border: 1px solid #ddd;
+				    box-shadow: none;
+				    span{
+				    	overflow: visible;
+				    }
+				    div{
+				    	b{
+				    		background: url(chosen-sprite.png) no-repeat 0px 10px;
+				    	}
+				    }
+				}
+				.chosen-drop{
+					background-color: #efefef;
+					padding: 20px;
+					border: 0px;
+				}
+			}
+			input[type="text"]{
+				padding: 10px;
+				width: 50%;
+				border-radius: 30px;
+				border: 1px solid #ddd;
+			}
+			.form-item{
+				width: 50%;	
+				@include respond-to(phone){
+					width: 100%;
+				}
+				label{
+					height: 20px;
+    				position: static !important;
+				}			
+				input{
+					width: 100%;
+				}
+			}
+		}
+	}
 	.profile{
 		.field{
 			padding-top: 15px;
@@ -580,6 +714,20 @@ body:not(.starting-sections){
 		form#views-form-commerce-cart-form-default{
 			table{
 				width: 100%;
+				td{
+					padding: 10px;
+					input.delete-line-item{
+						background-color: #38a496;
+						border: 0px;
+						border-radius: 30px;
+						padding: 10px 20px;
+						color: #fff;
+						text-align: center;
+					}
+				}
+				th{
+					padding: 10px;
+				}
 			}
 			.line-item-summary{
 				margin-top: 10px;
@@ -593,6 +741,41 @@ body:not(.starting-sections){
 					color: #fff;
 					text-align: center;
 					margin-left: 15px;
+				}
+			}
+		}
+	}
+	.views-exposed-form{
+		.views-exposed-widgets{
+			.views-widget-filter-field_categorie_tid{
+				padding-left: 20px;
+				&>label{
+					text-transform: uppercase;
+				}
+			}
+			.views-widget-filter-field_artista_tid{
+				padding-left: 20px;
+				&>label{
+					text-transform: uppercase;
+				}
+				.form-type-select{
+					position: relative;
+					&:after{
+						content:'\e313';
+						font-family: 'Material Icons';
+						position: absolute;
+						right: 10px;
+						top: 10px;
+						font-size: 25px;
+					}
+				}
+				select{
+					width: 100%;
+					padding: 15px;
+					border: 1px solid #ddd;
+					display: block;
+					background-color: #fff;
+					-webkit-appearance: none;
 				}
 			}
 		}
@@ -613,6 +796,14 @@ body:not(.starting-sections){
 			float: left;
 			margin-bottom: 15px;
 			overflow: hidden;
+			@include respond-to(tablet){
+				width: calc(50% - 15px);
+			}
+			@include respond-to(phone){
+				width: 100%;
+				margin-left: 0px;
+				margin-right: 0px;
+			}
 			.views-field-product-id{
 				display: none;
 			}

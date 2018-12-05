@@ -172,7 +172,22 @@
   <?php endif; ?>
 
   <div id="main-wrapper" class="clearfix"><div id="main" class="clearfix">
+        <?php 
+    global $user;
+
+    global $base_url;
+
+    $url=$base_url.'/'.$variables['directory'];
+
+
+    if (user_is_logged_in()){
+
+    $user_full = user_load($user->uid); // user_load(uid) returns the complete array
+    ?>
+
     <div class="container">
+
+    <?php } ?>
 
     <?php //if ($breadcrumb): ?>
       <!--<div id="breadcrumb"><?php //print $breadcrumb; ?></div>-->
@@ -216,7 +231,22 @@
       </div></div> <!-- /.section, /#sidebar-second -->
     <?php endif; ?>
 
+  <?php 
+  global $user;
+
+  global $base_url;
+
+  $url=$base_url.'/'.$variables['directory'];
+
+
+  if (user_is_logged_in()){
+
+  $user_full = user_load($user->uid); // user_load(uid) returns the complete array
+  ?>
+
   </div>
+
+  <?php } ?>
 </div> <!-- /#main, /#main-wrapper -->
 
   <?php if ($page['triptych_first'] || $page['triptych_middle'] || $page['triptych_last']): ?>
