@@ -1,6 +1,5 @@
 <?php 
 global $user;
-
 global $base_url;
 
 $url=$base_url.'/'.$variables['directory'];
@@ -13,12 +12,10 @@ $user_full = user_load($user->uid); // user_load(uid) returns the complete array
 ?>
 <p>Ciao <?php echo($user_full->field_nome_e_cognome['und'][0]['value']); ?>
 </p>
-<p>Hai ancora <?php echo("N.Giorni "); ?> giorni per aggiungere extra alla tua mostra.</p>
-
 <div class="blocks-home">
 	<div class="row">
 	<div class="miemostre-link col-lg-8">
-	  <a href=""><h2>Le tue mostre</h2></a>
+	  <a href="<?php echo($base_url.'/user/'.$user->uid.'/orders'); ?>"><h2>Le tue mostre</h2></a>
 	</div>
 	<div class="col-lg-4 no-right-padding">
 		<div class="extra-link">
@@ -31,7 +28,7 @@ $user_full = user_load($user->uid); // user_load(uid) returns the complete array
 	</div>
 	<div class="row">
 	<div class="tuttemostre-link col-lg-12">
-	  <a href=""><h2>Tutte le mostre</h2></a>
+	  <a href="/mostre?field_categorie_tid%255B%255D=3&field_artista_tid=All"><h2>Tutte le mostre</h2></a>
 	</div>
 	</div>
 </div>
