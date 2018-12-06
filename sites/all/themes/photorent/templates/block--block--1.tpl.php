@@ -4,7 +4,7 @@ global $user;
 
 $menu=menu_tree_all_data("main-menu", $link = NULL, $max_depth = NULL);
 
-if(user_is_logged_in()){    
+if(user_is_logged_in()&&commerce_cart_order_load($user->uid)){    
 $cart = commerce_cart_order_load($user->uid); 
 $total = $cart->commerce_order_total["und"][0]["amount"]; 
 $total_pretty = commerce_currency_format($total,"USD");
