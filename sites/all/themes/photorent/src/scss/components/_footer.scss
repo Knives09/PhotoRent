@@ -52,6 +52,11 @@
 			}
 		}
 	}
+	&.nomenu{
+		.region{
+			display: none;
+		}
+	}
 }
 body.starting-sections{
 	#footer-wrapper{

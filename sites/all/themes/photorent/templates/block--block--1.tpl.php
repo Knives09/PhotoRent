@@ -16,6 +16,9 @@ $count = count($cart->commerce_line_items);
     <div class="">
       <div class="">
         <ul>
+        <li><a class="cart-icon" href="<?php echo($base_url.'/cart'); ?>"><i class="material-icons">shopping_cart</i><span><?php if(isset($count)){echo $count;} ?></span></a></li>
+        <li><a class="cart-icon" href="<?php echo($base_url.'/user'); ?>"><i class="material-icons">settings</i></a></li>
+        <li><a href="<?php echo($base_url.'/user/'.$user->uid.'/orders'); ?>">Le mie mostre</a></li>
         <?php
           foreach ($menu as $key) {  ?>
           <li>
@@ -29,8 +32,6 @@ $count = count($cart->commerce_line_items);
             <?php } ?>
             </li>
         <?php }?>
-        <li><a href="<?php echo($base_url.'/cart'); ?>">Cart(<?php if(isset($count)){echo $count;} ?>)</a></li>
-        <li><a href="<?php echo($base_url.'/user/'.$user->uid.'/orders'); ?>">Le mie mostre</a></li>
         </ul>
       </div>
     </div>

@@ -16,6 +16,12 @@ $( document ).ready(function() {
         $('.views-exposed-widgets').addClass('row');
         $('.views-widget-filter-field_categorie_tid').addClass('col-lg-4 col-md-6');
         $('.views-widget-filter-field_artista_tid').addClass('col-lg-4 col-md-6');
+        $('.views-submit-button').addClass('col-lg-4 col-md-6');
+    }
+    if($('.form-opere').length > 0){
+        $('body').removeClass('starting-sections');
+        $('#header').addClass('nomenu');
+        $('#footer-wrapper').addClass('nomenu');
     }
     $('#edit-field-abbonamento-und--2 .form-item').each(function(index, el) {
     	$(this).click(function(event) {

@@ -14,29 +14,27 @@ $user_full = user_load($user->uid); // user_load(uid) returns the complete array
 </p>
 <div class="blocks-home">
 	<div class="row">
-	<div class="miemostre-link col-lg-8">
-	  <a href="<?php echo($base_url.'/user/'.$user->uid.'/orders'); ?>"><h2>Le tue mostre</h2></a>
-	</div>
+	<a class=" col-lg-8 miemostre-link" href="<?php echo($base_url.'/user/'.$user->uid.'/orders'); ?>">
+		  <span><h2>Le tue mostre</h2></span>
+	</a>
 	<div class="col-lg-4 no-right-padding">
-		<div class="extra-link">
-		  <a href=""><h2>Extra</h2></a>
-		</div>
-		<div class="offerte-link">
-		  <a href=""><h2>Offerte</h2></a>
-		</div>
+		<a href="" class="extra-link">
+		  <span><h2>Extra</h2></span>
+		</a>
+		<a href="" class="offerte-link">
+		  <span><h2>Offerte</h2></span>
+		</a>
 	</div>
 	</div>
 	<div class="row">
-	<div class="tuttemostre-link col-lg-12">
-	  <a href="/mostre?field_categorie_tid%255B%255D=3&field_artista_tid=All"><h2>Tutte le mostre</h2></a>
-	</div>
+	<a href="/mostre?field_categorie_tid%255B%255D=3&field_artista_tid=All" class="tuttemostre-link col-lg-12">
+	  <span><h2>Tutte le mostre</h2></span>
+	</a>
 	</div>
 </div>
 
 <?php } 
 else{?>
-
-
 <div class="container land-cont">
 	<div class="row">
 		<div class="col-md-4 offset-md-4">
@@ -57,6 +55,9 @@ else{?>
 	</div>
 </div>
 <div class="section2">
+	<div class="whatis">
+		Cos'è Fotorent?
+	</div>
 	<div class="container">
 		<div class="row">
 			<div class="col-md-6">
@@ -109,6 +110,25 @@ else{?>
 				</p>
 			</div>
 		</div>
+	</div>
+</div>
+<div class="container land-cont">
+	<div class="row">
+		<div class="col-md-4 offset-md-4">
+			<div class="log-cont">
+				<div class="logo">
+				  		<img src="<?php echo($url); ?>/images/fotorent_white.png" alt="logo">
+				  	</div>
+
+				<?php
+				  //$form = drupal_get_form('user_register_form');
+				$form=drupal_get_form('user_login_block');
+				  print(drupal_render($form));
+
+				  //print drupal_render($form);
+				 ?>
+				</div>
+			</div>
 	</div>
 </div>
 <?php }?>
