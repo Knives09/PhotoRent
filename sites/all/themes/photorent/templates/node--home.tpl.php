@@ -10,7 +10,7 @@ print theme('user_picture', array('account' => $user));
 
 $user_full = user_load($user->uid); // user_load(uid) returns the complete array
 ?>
-<p>Ciao <?php echo($user_full->field_nome_e_cognome['und'][0]['value']); ?>
+<p><?php echo($user_full->field_nome_e_cognome['und'][0]['value']); ?>
 </p>
 <div class="blocks-home">
 	<div class="row">

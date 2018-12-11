@@ -699,6 +699,7 @@ body:not(.starting-sections){
 		}
 	}
 	.profile{
+		padding-top: 120px;
 		.field{
 			padding-top: 15px;
 			padding-bottom: 15px;
@@ -713,12 +714,15 @@ body:not(.starting-sections){
 	}
 	.user-picture{
 		text-align: center;
+		width: 100%;
 		a{
 			display: inline-block;
 			border-radius: 50%;
-			width: 100px;
-			height: 100px;
+			width: 120px;
+			height: 120px;
 			margin-bottom: 20px;
+			background-color: #ddd;
+			overflow: hidden;
 			img{
 				width: 100%;
 			}
@@ -726,9 +730,12 @@ body:not(.starting-sections){
 	}
 	.blocks-home{
 		padding: 50px 0;
+		@include respond-to(phone){
+			padding: 0 15px;
+		}
 	}
 	.miemostre-link{
-		height: 400px;
+		height: 500px;
 		margin-bottom: 20px;
 		background-color: grey;
 		position: relative;
@@ -737,6 +744,7 @@ body:not(.starting-sections){
 		background-size: cover;
 		position: relative;
 		display: inline-block;
+		overflow: hidden;
 		&:after{
 			content: "";
 			position: absolute;
@@ -760,7 +768,7 @@ body:not(.starting-sections){
 		}
 	}
 	.extra-link{
-		height: 190px;
+		height: 240px;
 		margin-bottom: 20px;
 		background-color: grey;	
 		position: relative;
@@ -768,6 +776,7 @@ body:not(.starting-sections){
 		background-image: url(../img/bg2.png);
 		background-size: cover;
 		display: block;
+		overflow: hidden;
 		&:after{
 			content: "";
 			position: absolute;
@@ -792,13 +801,14 @@ body:not(.starting-sections){
 
 	}
 	.offerte-link{
-		height: 190px;
+		height: 240px;
 		background-color: grey;
 		position: relative;
 		border-radius: 5px;
 		background-image: url(../img/bg3.png);
 		background-size: cover;
 		display: block;
+		overflow: hidden;
 		&:after{
 			content: "";
 			position: absolute;
@@ -853,6 +863,9 @@ body:not(.starting-sections){
 	}
 	.no-right-padding{
 		padding-right: 0px;
+		@include respond-to(phone){
+			padding-left: 0px;
+		}
 	}
 	.view-commerce-cart-form{
 		form#views-form-commerce-cart-form-default{
@@ -931,7 +944,6 @@ body:not(.starting-sections){
 				    padding: 10px 20px;
 				    color: #fff;
 				    text-align: center;
-				    margin-left: 15px;
 				}
 			}
 		}
@@ -951,6 +963,8 @@ body:not(.starting-sections){
 			position: relative;
 			float: left;
 			margin-bottom: 15px;
+			overflow: hidden;
+			border-radius: 9px;
 			overflow: hidden;
 			@include respond-to(tablet){
 				width: calc(50% - 15px);
@@ -977,15 +991,15 @@ body:not(.starting-sections){
 				}
 			}
 			.views-field-add-to-cart-form{
+				opacity: 0;
+				@include transition-all;
 				.views-label{
 					display: none;
 				}
 				.field-content{
 					position: absolute;
 					text-align: center;
-					bottom: 20px;
-					left: 0;
-					right: 0;
+					@include center(xy);
 					input[type="submit"]{
 						background-color: #38a496;
 						border: 0px;
@@ -998,6 +1012,11 @@ body:not(.starting-sections){
 							opacity: 0.4;
 						}
 					}
+				}
+			}
+			&:hover{
+				.views-field-add-to-cart-form{
+					opacity: 1;
 				}
 			}
 		}
