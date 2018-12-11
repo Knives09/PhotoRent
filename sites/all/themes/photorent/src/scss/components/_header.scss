@@ -5,8 +5,7 @@
 	width: 100%;
 	background-color: #fff;
 	z-index: 9998;
-	&:before{
-		content:"";
+	.logo-header{
 		position: absolute;
 		background-image: url(../img/fotorent_color.png);
 		background-size: contain;
