@@ -18,10 +18,10 @@ $count = count($cart->commerce_line_items);
         <ul>
         <li><a class="cart-icon" href="<?php echo($base_url.'/cart'); ?>"><i class="material-icons">shopping_cart</i><span><?php if(isset($count)){echo $count;} ?></span></a></li>
         <li><a class="cart-icon" href="<?php echo($base_url.'/user'); ?>"><i class="material-icons">settings</i></a></li>
-        <li><a href="<?php echo($base_url.'/user/'.$user->uid.'/orders'); ?>">Le mie mostre</a></li>
+        <li class="hidden-xs"><a href="<?php echo($base_url.'/user/'.$user->uid.'/orders'); ?>">Le mie mostre</a></li>
         <?php
           foreach ($menu as $key) {  ?>
-          <li>
+          <li class="hidden-xs">
               <a href="<?php if($key['link']['href']!="<front>"){echo($base_url."/".$key['link']['href']);} else{echo("/");} if(isset($key['link']['options']['query']['field_categorie_tid%5B%5D'])&&isset($key['link']['options']['query']['field_artista_tid'])){echo("?field_categorie_tid%255B%255D=3&field_artista_tid=All");} ?>"><?php echo($key['link']['link_title']); ?></a>
             <?php if (isset($key['below'])){ ?>
               <ul>

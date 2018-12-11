@@ -10,6 +10,11 @@
 ::-ms-input-placeholder { /* Microsoft Edge */
     color: #fff;
 }
+.hidden-xs{
+	@include respond-to(phone){
+		display: none !important;
+	}
+}
 body.starting-sections{
 	background-color: #333;
 	background-image: url(../img/bg1.png);
@@ -498,6 +503,22 @@ body.starting-sections{
 					float: none;
 					margin: 10px 0px 0 0px;
 				}
+				&:last-child{
+					width: 100%;
+					text-align: center;
+				}
+				.form-actions{
+					input{
+						background-color: #38a496;
+						border: 0px;
+						border-radius: 30px;
+						padding: 10px 20px;
+						color: #fff;
+						text-align: center;
+						margin-bottom: 15px;
+						font-size: 16px;
+					}
+				}
 				.form-item{
 					label{
 						display: block !important;
@@ -564,6 +585,70 @@ body:not(.starting-sections){
 			text-align: center;
 		}
 	}
+	&.page-user-orders-{
+		.action-links{
+			display: none;
+		}
+		.view-commerce-line-item-table{
+			margin-bottom: 50px;
+			&:before{
+				content:"Dettaglio della mostra";
+				font-weight: bold;
+				font-size: 25px;
+				display: block;
+				margin-bottom: 20px;
+				margin-left: 8px;
+			}
+			table{
+				display: block;
+				width: 100%;
+			}
+			tbody{
+				display: block;
+				width: 100%;
+				border: 0;
+				&:after{
+					content:"";
+					display: block;
+					clear: both;
+				}
+			}
+			tr{
+				display: block;
+				width: calc(33% - 15px);
+				margin: 0 7.5px;
+				float: left;
+				padding: 0;
+				border: 0;
+				td{
+					padding: 0;
+					display: block;
+					width: 100%;
+					img{
+						width: 100%;
+						height: auto;
+					}
+				}
+			}
+		}
+	}
+	.view-commerce-user-orders{
+		table.views-table{
+			width: 100%;
+			tr{
+				td{
+					background: #fff;
+					padding: 15px;
+				}
+				th{
+					padding: 15px;
+					a{
+						color: #000;
+					}
+				}
+			}
+		}
+	}
 	.checkout_completion_message{
 		position: relative;
 		margin-top: 15vh;
@@ -594,11 +679,19 @@ body:not(.starting-sections){
 		}
 		table.checkout-review{
 			width: 100%;
+			.pane-data-full{
+				padding: 25px;
+			}
 			td{
-				padding: 10px;
+				padding: 15px;
+				background-color: #fff;
 			}
 			table.views-table{
 				width: 100%;
+				th{
+					padding: 15px;
+					background-color: #ddd;
+				}
 			}
 		}
 		#edit-commerce-payment{
@@ -606,6 +699,7 @@ body:not(.starting-sections){
 				span{
 					margin-top: 20px;
 					display: block;
+					font-weight: bold;
 				}
 			}
 		}
@@ -621,13 +715,21 @@ body:not(.starting-sections){
 			margin-right: 20px;
 		}
 	}
+	table.commerce-price-formatted-components{
+		display: none;
+	}
 	#commerce-checkout-form-checkout{
 		width: 100%;
+		legend{
+			span{font-weight: bold;}
+		}
 		.view-content{
 			table.views-table{
+				margin-bottom: 30px;
 				width: 100%;
 				.views-field {
-					padding: 10px;
+					padding: 15px;
+					background-color: #fff;
 				}
 			}
 		}
@@ -646,6 +748,7 @@ body:not(.starting-sections){
 			padding: 10px 20px;
 			color: #fff;
 			text-align: center;
+			margin-top: 20px;
 			margin-bottom: 30px;
 			margin-right: 20px;
 		}
@@ -684,9 +787,14 @@ body:not(.starting-sections){
 				border: 1px solid #ddd;
 			}
 			.form-item{
-				width: 50%;	
+				display: block;
+				width: calc(50% - 15px);
+				float: left;
+				margin: 10px 7.5px 0 7.5px;
 				@include respond-to(phone){
 					width: 100%;
+					float: none;
+					margin: 10px 0px 0 0px;
 				}
 				label{
 					height: 20px;
@@ -869,10 +977,18 @@ body:not(.starting-sections){
 	}
 	.view-commerce-cart-form{
 		form#views-form-commerce-cart-form-default{
+			&:before{
+				content:"La mia mostra";
+				font-size: 25px;
+				font-weight: bold;
+				display: block;
+				margin-bottom: 25px;
+			}
 			table{
 				width: 100%;
 				td{
-					padding: 10px;
+					padding: 15px;
+					background: #fff;
 					input.delete-line-item{
 						background-color: #38a496;
 						border: 0px;
@@ -908,6 +1024,36 @@ body:not(.starting-sections){
 				padding-left: 20px;
 				&>label{
 					text-transform: uppercase;
+				}
+				.bef-checkboxes{
+					.form-item{
+						margin-bottom: 5px;
+						label{
+							margin-left: 10px;
+							position: relative;
+							&:after{
+								content:"";
+								width: 20px;
+								height: 20px;
+								border: 1px solid #ddd;
+								background-color: #fff;
+								position: absolute;
+								left: -30px;
+								top: 0px;
+								text-align: center;
+								line-height: 18px;
+								color: #38a496;
+							}
+							&:hover{
+								&:after{
+									background-color: #38a496;
+								}
+							}
+						}
+					}
+					.form-item input:checked ~ label:after {
+						content: "✓";
+					}
 				}
 			}
 			.views-widget-filter-field_artista_tid{
