@@ -27,7 +27,7 @@ $user_full = user_load($user->uid); // user_load(uid) returns the complete array
 	</div>
 	</div>
 	<div class="row">
-	<a href="/mostre?field_categorie_tid%255B%255D=3&field_artista_tid=All" class="tuttemostre-link col-lg-12">
+	<a href="/opere" class="tuttemostre-link col-lg-12">
 	  <span><h2>Tutte le mostre</h2></span>
 	</a>
 	</div>

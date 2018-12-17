@@ -1,4 +1,7 @@
 <?php 
+$view = views_get_view('opera_artista');
+$view->execute();
+
 echo("<h1>".$node->title."</h1>"); 
 if(isset($node->body['und'][0]['safe_value'])){
 echo($node->body['und'][0]['safe_value']);
@@ -28,14 +31,23 @@ function taxonomy_get_nested_tree($terms = array(), $max_depth = NULL, $parent =
 
   return $return;
 }
-function output_taxonomy_nested_tree($tree,$node) {
-  if($node->title=="Artisti"){
+function output_taxonomy_nested_tree($tree,$node,$view) {
+  if($node=="Artisti"){
     if (count($tree)) {
         $output = '<ul class="taxonomy-tree">';
         foreach ($tree as $term) {
-            $output .= '<li class="taxonomy-term"><a href="http://fotorent.altervista.org/mostre?field_artista_tid='.$term->tid.'">';
+          foreach ($view->result as $key) {
+            if($key->field_field_artista[0]['rendered']['#title']==$term->name){
+              $img=file_create_url($key->field_field_gallery[0]['raw']['uri']);
+              break;
+            }
+          }
+            $output .= '<a href="http://fotorent.altervista.org/tutte-le-mostre?field_categorie_tid=&field_artista_tid='.$term->name.'">';
+            $output .= '<h3>';
             $output .= $term->name;
-            $output .= '</a></li>';
+            $output .= '</h3>';
+            $output .= '<img src="'.$img.'" alt="Smiley face" height="50" width="50">';
+            $output .= '</a>';
         }
         $output .= '</ul>';
     }
@@ -44,9 +56,18 @@ function output_taxonomy_nested_tree($tree,$node) {
      if (count($tree)) {
         $output = '<ul class="taxonomy-tree">';
         foreach ($tree as $term) {
-            $output .= '<li class="taxonomy-term"><a href="http://fotorent.altervista.org/mostre?field_categorie_tid%5B%5D='.$term->tid.'">';
+          foreach ($view->result as $key) {
+            if($key->field_field_categorie[0]['rendered']['#title']==$term->name){
+              $img=file_create_url($key->field_field_gallery[0]['raw']['uri']);
+              break;
+            }
+          }
+            $output .= '<a href="http://fotorent.altervista.org/tutte-le-mostre?field_categorie_tid='.$term->name.'&field_artista_tid=">';
+            $output .= '<h3>';
             $output .= $term->name;
-            $output .= '</a></li>';
+            $output .= '</h3>';
+             $output .= '<img src="'.$img.'" alt="Smiley face" height="50" width="50">';
+            $output .= '</a>';
         }
         $output .= '</ul>';
     }
@@ -56,14 +77,24 @@ function output_taxonomy_nested_tree($tree,$node) {
   
 }?>
 
-<?php
-if($node->title=="Artisti"){
-$tree= taxonomy_get_nested_tree(2,10);
-$output=output_taxonomy_nested_tree($tree,$node);
-echo $output;
-}else{
-  $tree= taxonomy_get_nested_tree(1,10);
-$output=output_taxonomy_nested_tree($tree,$node);
-echo $output;
-}
 
+<div class="tab">
+  <button class="tablinks" onclick="">Artisti</button>
+  <button class="tablinks" onclick="">Categorie</button>
+</div>
+
+<!-- Tab content -->
+<div id="Categorie" class="tabcontent">
+<?php 
+$tree= taxonomy_get_nested_tree(2,10);
+$output=output_taxonomy_nested_tree($tree,"Artisti",$view);
+echo $output;
+?>
+</div>
+<div id="Artisti" class="tabcontent">
+<?php 
+$tree= taxonomy_get_nested_tree(1,10);
+$output=output_taxonomy_nested_tree($tree,"Mostre",$view);
+echo $output;
+?>
+</div>
