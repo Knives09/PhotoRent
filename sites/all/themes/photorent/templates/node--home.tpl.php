@@ -27,7 +27,7 @@ $user_full = user_load($user->uid); // user_load(uid) returns the complete array
 		  <span><h2>Le tue mostre</h2></span>
 	</a>
 	<div class="col-lg-4 no-right-padding">
-		<a href="" class="extra-link <?php echo($extra); ?>">
+		<a href="/extra" class="extra-link <?php echo($extra); ?>">
 		  <span><h2>Extra</h2></span>
 		</a>
 		<a href="" class="offerte-link">
