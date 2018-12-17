@@ -2,6 +2,15 @@
 global $base_url;
 global $user;
 
+$orders = commerce_order_load_multiple(array(), array('uid' => $user->uid));
+if(count($orders)==0){
+  $extra="disabled";
+}
+else
+{
+  $extra="";
+}
+
 $menu=menu_tree_all_data("main-menu", $link = NULL, $max_depth = NULL);
 
 if(user_is_logged_in()&&commerce_cart_order_load($user->uid)){    
@@ -24,7 +33,7 @@ $count = count($cart->commerce_line_items);
         <li class="hidden-xs"><a href="<?php echo($base_url.'/user/'.$user->uid.'/orders'); ?>">Le mie mostre</a></li>
         <?php
           foreach ($menu as $key) {  ?>
-          <li class="hidden-xs">
+          <li class="hidden-xs<?php if($key['link']['link_title']=="Extra"){echo(" ".$extra);} ?>">
               <a href="<?php if($key['link']['href']!="<front>"){echo($base_url."/".$key['link']['href']);} else{echo("/");} if(isset($key['link']['options']['query']['field_categorie_tid%5B%5D'])&&isset($key['link']['options']['query']['field_artista_tid'])){echo("?field_categorie_tid%255B%255D=3&field_artista_tid=All");} ?>"><?php echo($key['link']['link_title']); ?></a>
             <?php if (isset($key['below'])){ ?>
               <ul>
