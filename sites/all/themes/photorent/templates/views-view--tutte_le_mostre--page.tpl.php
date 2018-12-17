@@ -5,6 +5,16 @@ $y=0;
 $views = views_get_view('opera_artista');
 $views->execute();
 
+$artista=$_GET['field_artista_tid'];
+$categoria=$_GET['field_categorie_tid'];
+
+if($categoria!=""){
+  echo("<h2>".$categoria."</h2>");
+}
+if($artista!=""){
+  echo ("<h2>".$artista."</h2>");
+}
+
 foreach ($view->result as $key) {
   if($x==0){
     $mostre[0]=$key->field_field_mostra[0]['rendered']['#markup'];
