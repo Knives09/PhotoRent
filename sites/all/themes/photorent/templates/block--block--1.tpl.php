@@ -26,7 +26,7 @@ $count = count($cart->commerce_line_items);
       <div class="">
         <ul>
         <?php if(user_is_logged_in()){?>
-            <li><a class="cart-icon" href="<?php echo($base_url.'/user/logout'); ?>"><i class="material-icons"></i><span></span>Log-out</a></li>
+            <li><a class="cart-icon" href="<?php echo($base_url.'/user/logout'); ?>"><i class="material-icons">exit_to_app</i></a></li>
         <?php } ?>
         <li><a class="cart-icon" href="<?php echo($base_url.'/cart'); ?>"><i class="material-icons">shopping_cart</i><span><?php if(isset($count)){echo $count;} ?></span></a></li>
         <li><a class="cart-icon" href="<?php echo($base_url.'/user'); ?>"><i class="material-icons">settings</i></a></li>

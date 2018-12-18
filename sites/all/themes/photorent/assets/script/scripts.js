@@ -23,6 +23,17 @@ $( document ).ready(function() {
         $('#header').addClass('nomenu');
         $('#footer-wrapper').addClass('nomenu');
     }
+    if($('.home-mostre').length > 0){
+        $('.tablinks').click(function(event) {
+            event.preventDefault();
+            $('.tablinks').each(function(index, el) {
+                $(this).toggleClass('active');
+            });
+            $('.tabcontent').each(function(index, el) {
+                $(this).toggleClass('not-vis');
+            });
+        });
+    }
     $('#edit-field-abbonamento-und--2 .form-item').each(function(index, el) {
     	$(this).click(function(event) {
     		/* Act on the event */

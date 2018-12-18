@@ -77,24 +77,25 @@ function output_taxonomy_nested_tree($tree,$node,$view) {
   
 }?>
 
+<div class="home-mostre">
+  <div class="tab-select">
+    <a href="" class="tablinks active">Topics</a>
+    <a href="" class="tablinks">Artisti</a>
+  </div>
 
-<div class="tab">
-  <button class="tablinks" onclick="">Artisti</button>
-  <button class="tablinks" onclick="">Categorie</button>
-</div>
-
-<!-- Tab content -->
-<div id="Categorie" class="tabcontent">
-<?php 
-$tree= taxonomy_get_nested_tree(2,10);
-$output=output_taxonomy_nested_tree($tree,"Artisti",$view);
-echo $output;
-?>
-</div>
-<div id="Artisti" class="tabcontent">
-<?php 
-$tree= taxonomy_get_nested_tree(1,10);
-$output=output_taxonomy_nested_tree($tree,"Mostre",$view);
-echo $output;
-?>
+  <!-- Tab content -->
+  <div id="Artisti" class="tabcontent not-vis">
+  <?php 
+  $tree= taxonomy_get_nested_tree(2,10);
+  $output=output_taxonomy_nested_tree($tree,"Artisti",$view);
+  echo $output;
+  ?>
+  </div>
+  <div id="Categorie" class="tabcontent">
+  <?php 
+  $tree= taxonomy_get_nested_tree(1,10);
+  $output=output_taxonomy_nested_tree($tree,"Mostre",$view);
+  echo $output;
+  ?>
+  </div>
 </div>
