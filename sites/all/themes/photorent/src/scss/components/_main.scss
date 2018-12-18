@@ -639,6 +639,14 @@ body:not(.starting-sections){
 				td{
 					background: #fff;
 					padding: 15px;
+					input[type="submit"]{
+						background-color: #38a496;
+					    border: 0px;
+					    border-radius: 30px;
+					    padding: 10px 20px;
+					    color: #fff;
+					    text-align: center;
+					}
 				}
 				th{
 					padding: 15px;
@@ -647,6 +655,9 @@ body:not(.starting-sections){
 					}
 				}
 			}
+		}
+		#edit-actions{
+			display: none;
 		}
 	}
 	.checkout_completion_message{
