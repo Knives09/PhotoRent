@@ -2,6 +2,15 @@
 global $user;
 global $base_url;
 
+$orders = commerce_order_load_multiple(array(), array('uid' => $user->uid));
+if(count($orders)==0){
+  $extra="disabled";
+}
+else
+{
+  $extra="";
+}
+
 $url=$base_url.'/'.$variables['directory'];
 
 
@@ -18,7 +27,7 @@ $user_full = user_load($user->uid); // user_load(uid) returns the complete array
 		  <span><h2>Le tue mostre</h2></span>
 	</a>
 	<div class="col-lg-4 no-right-padding">
-		<a href="" class="extra-link">
+		<a href="/extra" class="extra-link <?php echo($extra); ?>">
 		  <span><h2>Extra</h2></span>
 		</a>
 		<a href="" class="offerte-link">
@@ -27,7 +36,7 @@ $user_full = user_load($user->uid); // user_load(uid) returns the complete array
 	</div>
 	</div>
 	<div class="row">
-	<a href="/mostre?field_categorie_tid%255B%255D=3&field_artista_tid=All" class="tuttemostre-link col-lg-12">
+	<a href="/opere" class="tuttemostre-link col-lg-12">
 	  <span><h2>Tutte le mostre</h2></span>
 	</a>
 	</div>
