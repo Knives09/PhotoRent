@@ -1391,6 +1391,30 @@ body:not(.starting-sections){
 			}
 			.views-field-add-to-cart-form{
 				opacity: 0;
+				&:before{
+					content: "\e5ca";
+					position: absolute;
+					z-index: 5;
+					@include center(xy);
+					color: #fff;
+					font-size: 70px;
+					font-family: "Material Icons";
+				}
+				&:after{
+					content: "";
+					position: absolute;
+					width: 100%;
+					height: 100%;
+					opacity: 0.4;
+					top: 0;
+					left: 0;
+					z-index: 4;
+					background: #38a496;
+				    background: -moz-linear-gradient(top, #38a496 0%, #265a91 100%);
+				    background: -webkit-linear-gradient(top, #38a496 0%, #265a91 100%);
+				    background: linear-gradient(to bottom, #38a496 0%, #265a91 100%);
+				    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#38a496', endColorstr='#265a91',GradientType=0 );
+				}
 				@include transition-all;
 				.views-label{
 					display: none;
@@ -1398,9 +1422,12 @@ body:not(.starting-sections){
 				.field-content{
 					position: absolute;
 					text-align: center;
+					z-index: 6;
 					@include center(xy);
 					input[type="submit"]{
-						background-color: #38a496;
+						width: 100%;
+						background-color: transparent;
+						opacity: 0;
 						border: 0px;
 						border-radius: 30px;
 						padding: 10px 20px;
