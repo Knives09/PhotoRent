@@ -30,6 +30,7 @@ foreach ($view->result as $key) {
     }
   }
 }
+echo('<div class="box-mostre">');
 foreach ($mostre as $key) {
   foreach ($views->result as $chiave) {
             if($chiave->field_field_mostra[0]['rendered']['#title']==$key){
@@ -37,12 +38,13 @@ foreach ($mostre as $key) {
               break;
             }
           }?>
-  <div>
-    <a href="http://fotorent.altervista.org/mostre?field_mostra_tid=<?php echo($key); ?>">
+  
+    <a href="http://localhost/PhotoRent/mostre?field_mostra_tid=<?php echo($key); ?>">
     <h3><?php echo($key); ?></h3>
     <img src="<?php echo($img); ?>" height="50" width="50">
     </a>
-  </div>
+  
 <?php 
 }
 ?>
+</div>

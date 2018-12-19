@@ -42,7 +42,7 @@ function output_taxonomy_nested_tree($tree,$node,$view) {
               break;
             }
           }
-            $output .= '<a href="http://fotorent.altervista.org/tutte-le-mostre?field_categorie_tid=&field_artista_tid='.$term->name.'">';
+            $output .= '<a href="http://localhost/PhotoRent/tutte-le-mostre?field_categorie_tid=&field_artista_tid='.$term->name.'">';
             $output .= '<h3>';
             $output .= $term->name;
             $output .= '</h3>';
@@ -62,7 +62,7 @@ function output_taxonomy_nested_tree($tree,$node,$view) {
               break;
             }
           }
-            $output .= '<a href="http://fotorent.altervista.org/tutte-le-mostre?field_categorie_tid='.$term->name.'&field_artista_tid=">';
+            $output .= '<a href="http://localhost/PhotoRent/tutte-le-mostre?field_categorie_tid='.$term->name.'&field_artista_tid=">';
             $output .= '<h3>';
             $output .= $term->name;
             $output .= '</h3>';
