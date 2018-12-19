@@ -26,7 +26,7 @@
 }
 body.starting-sections{
 	background-color: #333;
-	background-image: url(../img/bg1.png);
+	background-image: url(../img/bg1.jpg);
 	background-repeat: no-repeat;
 	background-attachment: fixed;
 	height: 100vh;
@@ -34,25 +34,25 @@ body.starting-sections{
 	color: #fff;
 	font-family: 'Open Sans', sans-serif;
 	&.register{
-		background-image: url(../img/bg2.png);
+		background-image: url(../img/bg2.jpg);
 		#footer-wrapper{
 			display: none;
 		}
 	}
 	&.interessi{
-		background-image: url(../img/bg3.png);
+		background-image: url(../img/bg3.jpg);
 		#footer-wrapper{
 			display: none;
 		}
 	}
 	&.abbonamento{
-		background-image: url(../img/bg4.png);
+		background-image: url(../img/bg4.jpg);
 		#footer-wrapper{
 			display: none;
 		}
 	}
 	&.tipo{
-		background-image: url(../img/bg5.png);
+		background-image: url(../img/bg5.jpg);
 		#footer-wrapper{
 			display: none;
 		}
@@ -117,7 +117,7 @@ body.starting-sections{
 			}
 		}
 		&.second{
-			background: url(../img/10.png);
+			background: url(../img/10.jpg);
 			padding-top: 100px;
 			padding-bottom: 80vh;
 			.infotext{
@@ -128,7 +128,7 @@ body.starting-sections{
 			}
 		}
 		&.third{
-			background: url(../img/15.png);
+			background: url(../img/15.jpg);
 			padding-top: 100px;
 			padding-bottom: 80vh;
 			.infotext{
@@ -592,7 +592,13 @@ body:not(.starting-sections){
 		width: 100%;
 		p{
 			text-align: left;
+			&.user-name{
+				text-align: center;
+			}
 		}
+	}
+	.views-form{
+		overflow-x: auto;
 	}
 	.form-extra{
 		ul{
@@ -620,6 +626,12 @@ body:not(.starting-sections){
 			    		text-align: center;
 			    		background-color: #fff;
 			    		font-size: 16px;
+			    		cursor: pointer;
+			    		@include respond-to(phone){
+			    			line-height: 14px;
+						    font-size: 13px;
+						    padding: 7px;
+			    		}
 			    	}
 			    	input[type="radio"]:checked+label{
 			    		width: 100%;
@@ -647,6 +659,7 @@ body:not(.starting-sections){
 	}
 	.title-mostra{
 		margin-bottom: 50px;
+		padding: 0 7.5px;
 		p{
 			text-align: left;
 			margin-bottom: 0px;
@@ -664,6 +677,12 @@ body:not(.starting-sections){
 			overflow: hidden;
 			position: relative;
 			border-radius: 8px;
+			@include respond-to(phone){
+				width: 100%;
+				float: none;
+				margin-left: 0px;
+				margin-right: 0px;
+			}
 			h3{
 				position: absolute;
 				bottom: 25px;
@@ -674,6 +693,9 @@ body:not(.starting-sections){
 				display: block;
 				width: calc(100% - 50px);
 				@include transition-all();
+				@include respond-to(phone){
+					opacity: 1;
+				}
 				&:after{
 					content: "";
 				    position: absolute;
@@ -761,6 +783,12 @@ body:not(.starting-sections){
 					overflow: hidden;
 					position: relative;
 					border-radius: 8px;
+					@include respond-to(phone){
+						width: 100%;
+						float: none;
+						margin-left: 0px;
+						margin-right: 0px;
+					}
 					h3{
 						position: absolute;
 						bottom: 25px;
@@ -771,6 +799,9 @@ body:not(.starting-sections){
 						display: block;
 						width: calc(100% - 50px);
 						@include transition-all();
+						@include respond-to(phone){
+							opacity: 1;
+						}
 						&:after{
 							content: "";
 						    position: absolute;
@@ -851,6 +882,11 @@ body:not(.starting-sections){
 				overflow: hidden;
 				position: relative;
 				height: 350px;
+				@include respond-to(phone){
+					width: calc(100% - 15px);
+					float: none;
+					margin-bottom: 15px;
+				}
 				td{
 					padding: 0;
 					display: block;
@@ -1094,6 +1130,7 @@ body:not(.starting-sections){
 	}
 	.blocks-home{
 		padding: 50px 0;
+		margin-bottom: 50px;
 		@include respond-to(phone){
 			padding: 0 15px;
 		}
@@ -1103,12 +1140,15 @@ body:not(.starting-sections){
 		margin-bottom: 20px;
 		background-color: grey;
 		position: relative;
-		border-radius: 5px;
-		background-image: url(../img/bg1.png);
+		border-radius: 8px;
+		background-image: url(../img/le-mie-mostre.jpg);
 		background-size: cover;
 		position: relative;
 		display: inline-block;
 		overflow: hidden;
+		@include respond-to(phone){
+			height: 300px;
+		}
 		&:after{
 			content: "";
 			position: absolute;
@@ -1136,11 +1176,14 @@ body:not(.starting-sections){
 		margin-bottom: 20px;
 		background-color: grey;	
 		position: relative;
-		border-radius: 5px;
-		background-image: url(../img/bg2.png);
+		border-radius: 8px;
+		background-image: url(../img/extra.png);
 		background-size: cover;
 		display: block;
 		overflow: hidden;
+		@include respond-to(phone){
+			height: 300px;
+		}
 		&.disabled{
 			opacity: 0.3;
 			pointer-events: none;
@@ -1172,13 +1215,16 @@ body:not(.starting-sections){
 		height: 240px;
 		background-color: grey;
 		position: relative;
-		border-radius: 5px;
-		background-image: url(../img/bg3.png);
+		border-radius: 8px;
+		background-image: url(../img/bg3.jpg);
 		background-size: cover;
 		display: block;
 		overflow: hidden;
 		opacity: 0.3;
 		pointer-events: none;
+		@include respond-to(phone){
+			height: 300px;
+		}
 		&:after{
 			content: "";
 			position: absolute;
@@ -1205,16 +1251,21 @@ body:not(.starting-sections){
 		height: 350px;
 		background-color: grey;
 		position: relative;
-		border-radius: 5px;
-		background-image: url(../img/bg4.png);
+		border-radius: 8px;
+		background-image: url(../img/tutte-le-mostre.jpg);
 		background-size: cover;
 		display: block;
+		@include respond-to(phone){
+			margin-top: 15px;
+			height: 300px;
+		}
 		&:after{
 			content: "";
 			position: absolute;
 			left: 0;
 			top: 0;
 			width: 100%;
+			border-radius: 8px;
 			height: 100%;
 			z-index: 1;
 			background: -moz-linear-gradient(top, rgba(0,0,0,0) 0%, rgba(0,0,0,0.43) 100%);

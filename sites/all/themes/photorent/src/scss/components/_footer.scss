@@ -37,6 +37,9 @@
 	}
 	.region{
 		ul{
+			@include respond-to(phone){
+				opacity: 0;
+			}
 			list-style-type: none;
 			margin-bottom: 15px;
 			li{
