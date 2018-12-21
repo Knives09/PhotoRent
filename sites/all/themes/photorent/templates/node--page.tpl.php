@@ -1,4 +1,5 @@
 <?php 
+global $base_url;
 $view = views_get_view('opera_artista');
 $view->execute();
 
@@ -31,7 +32,7 @@ function taxonomy_get_nested_tree($terms = array(), $max_depth = NULL, $parent =
 
   return $return;
 }
-function output_taxonomy_nested_tree($tree,$node,$view) {
+function output_taxonomy_nested_tree($tree,$node,$view,$base_url) {
   if($node=="Artisti"){
     if (count($tree)) {
         $output = '<ul class="taxonomy-tree">';
@@ -42,7 +43,7 @@ function output_taxonomy_nested_tree($tree,$node,$view) {
               break;
             }
           }
-            $output .= '<a href="http://localhost/PhotoRent/tutte-le-mostre?field_categorie_tid=&field_artista_tid='.$term->name.'">';
+            $output .= '<a href='.$base_url.'/tutte-le-mostre?field_categorie_tid=&field_artista_tid='.str_replace(" ","%20",$term->name).'">';
             $output .= '<h3>';
             $output .= $term->name;
             $output .= '</h3>';
@@ -62,7 +63,7 @@ function output_taxonomy_nested_tree($tree,$node,$view) {
               break;
             }
           }
-            $output .= '<a href="http://localhost/PhotoRent/tutte-le-mostre?field_categorie_tid='.$term->name.'&field_artista_tid=">';
+            $output .= '<a href="'.$base_url.'/tutte-le-mostre?field_categorie_tid='.$term->name.'&field_artista_tid=">';
             $output .= '<h3>';
             $output .= $term->name;
             $output .= '</h3>';
@@ -87,14 +88,14 @@ function output_taxonomy_nested_tree($tree,$node,$view) {
   <div id="Artisti" class="tabcontent not-vis">
   <?php 
   $tree= taxonomy_get_nested_tree(2,10);
-  $output=output_taxonomy_nested_tree($tree,"Artisti",$view);
+  $output=output_taxonomy_nested_tree($tree,"Artisti",$view,$base_url);
   echo $output;
   ?>
   </div>
   <div id="Categorie" class="tabcontent">
   <?php 
   $tree= taxonomy_get_nested_tree(1,10);
-  $output=output_taxonomy_nested_tree($tree,"Mostre",$view);
+  $output=output_taxonomy_nested_tree($tree,"Mostre",$view,$base_url);
   echo $output;
   ?>
   </div>

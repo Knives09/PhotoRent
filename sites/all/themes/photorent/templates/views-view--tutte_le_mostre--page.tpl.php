@@ -1,4 +1,5 @@
 <?php 
+global $base_url;
 $mostre[0]="";
 $x=0;
 $y=0;
@@ -39,7 +40,7 @@ foreach ($mostre as $key) {
             }
           }?>
   
-    <a href="http://localhost/PhotoRent/mostre?field_mostra_tid=<?php echo($key); ?>">
+    <a href="<?php echo($base_url);?>/mostre?field_mostra_tid=<?php echo($key); ?>">
     <h3><?php echo($key); ?></h3>
     <img src="<?php echo($img); ?>" height="50" width="50">
     </a>
