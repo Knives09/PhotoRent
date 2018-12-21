@@ -106,6 +106,8 @@ body.starting-sections{
 			display: block;
 			padding-top: 30px;
 			position: relative;
+			@include center(y);
+			font-size: 24px;
 			&:before{
 				content:"";
 				position: absolute;
@@ -119,7 +121,8 @@ body.starting-sections{
 		&.second{
 			background: url(../img/10.jpg);
 			padding-top: 100px;
-			padding-bottom: 80vh;
+			padding-top: 40vh;
+			padding-bottom: 40vh;
 			.infotext{
 				color: #000;
 				&:before{
@@ -133,6 +136,10 @@ body.starting-sections{
 			padding-bottom: 80vh;
 			.infotext{
 				color: #000;
+				position: relative;
+			    top: 0%;
+			    bottom: inherit;
+			    transform: translateY(0%);
 				&:before{
 					background-color: #000;
 				}
