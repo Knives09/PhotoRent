@@ -10,6 +10,9 @@
 ::-ms-input-placeholder { /* Microsoft Edge */
     color: #fff;
 }
+input{
+	outline-style:none;
+}
 .hidden-xs{
 	@include respond-to(phone){
 		display: none !important;
@@ -18,11 +21,30 @@
 .messages{
 	position: fixed !important;
     top: 80px !important;
-    border: 1px solid #38a496 !important;
+    border: 0px !important;
     background-color: #fff !important;
     border-radius: 8px !important;
     padding: 20px 50px !important;
     @include center(x);
+    -webkit-box-shadow: 0px 28px 64px 10px rgba(0,0,0,0.13);
+	-moz-box-shadow: 0px 28px 64px 10px rgba(0,0,0,0.13);
+	box-shadow: 0px 28px 64px 10px rgba(0,0,0,0.13);
+	background-image: none !important;
+	z-index: 9999;
+	font-weight: bold;
+	color: grey;
+	&.status{
+		padding-top: 80px !important;
+	    background-image: url(../img/img1.png) !important;
+	    background-size: 40px;
+	    background-position: center 20px;
+	}
+	&.warning{
+		padding-top: 80px !important;
+	    background-image: url(../img/img2.png) !important;
+	    background-size: 40px;
+	    background-position: center 20px;
+	}
 }
 body.starting-sections{
 	background-color: #333;
