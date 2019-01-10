@@ -26,9 +26,9 @@ input{
     border-radius: 8px !important;
     padding: 20px 50px !important;
     @include center(x);
-    -webkit-box-shadow: 0px 28px 64px 10px rgba(0,0,0,0.13);
-	-moz-box-shadow: 0px 28px 64px 10px rgba(0,0,0,0.13);
-	box-shadow: 0px 28px 64px 10px rgba(0,0,0,0.13);
+    -webkit-box-shadow: 0px 24px 64px 0px rgba(0,0,0,0.13);
+	-moz-box-shadow: 0px 24px 64px 0px rgba(0,0,0,0.13);
+	box-shadow: 0px 24px 64px 0px rgba(0,0,0,0.13);
 	background-image: none !important;
 	z-index: 9999;
 	font-weight: bold;
