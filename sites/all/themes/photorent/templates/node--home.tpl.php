@@ -59,6 +59,11 @@ else{?>
 
 				  //print drupal_render($form);
 				 ?>
+				 <form action="/node/6">
+				 	<div class="form-actions form-wrapper" id="">
+				 		<input type="submit" id="" name="" value="Accedi come ospite" class="form-submit">
+				 	</div>
+				 </form>
 				</div>
 			</div>
 	</div>
